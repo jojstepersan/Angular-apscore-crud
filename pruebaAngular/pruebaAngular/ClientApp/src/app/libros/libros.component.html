@@ -1,0 +1,51 @@
+<h1 id="tableLabel">Buscador de libros</h1>
+
+<div class="row">
+  <div class="col-md-2">
+    <label for="autor">Autor</label><br />
+    <input id="autor" type="text" placeholder="Autor" />
+  </div>
+  <div class="col-md-2">
+    <label for="titulo">Titulo</label><br />
+    <input id="titulo" type="text" placeholder="Titulo" />
+  </div>
+  <div class="col-md-2">
+    <label for="anho">Año</label><br />
+    <input id="anho" type="number" placeholder="Año" />
+  </div>
+  <div class="col-md-2">
+    <label for="genero">Genero</label><br />
+    <input id="genero" type="text" placeholder="Genero" />
+  </div>
+  <div class="col-md-2">
+    <label for="editorial">Editorial</label><br />
+    <input id="editorial" type="text" placeholder="editorial" />
+  </div>
+  <div class="col-md-2">
+    <button (click)="onFilter()" id="filter">Filtar</button>
+  </div>
+</div>
+
+<p *ngIf="!libro"><em>Loading...</em></p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="libro">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Autor</th>
+      <th>Editorial</th>
+      <th>Genero</th>
+      <th>Número de páginas</th>
+      <th>Año</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let libro of libro">
+      <td>{{ libro.titulo }}</td>
+      <td>{{ libro.nameAutor }}</td>
+      <td>{{ libro.nameEditorial }}</td>
+      <td>{{ libro.nameGenero }}</td>
+      <td>{{ libro.numPaginas }}</td>
+      <td>{{ libro.anho }}</td>
+    </tr>
+  </tbody>
+</table>
